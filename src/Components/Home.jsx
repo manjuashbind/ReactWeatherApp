@@ -58,7 +58,7 @@ const weatherKochi=async()=>{
 
  },[])
  
- const dateBuilder=(d)=>{
+ const dateBuilder=()=>{
    
     let date = String(new window.Date())
     // console.log(date);
@@ -87,18 +87,18 @@ useEffect(()=>{
 
 
 return (
-    <div >
+    <div  >
 
-    <Container className='p-0  p-xl-2 mx-auto text-center'  >
-        <Row className='p-0 p-xl-1 mt-0 mx-auto' style={{height:'100vh'}} >
-            <Col  style={{ backgroundImage:`url(${wicon})`,backgroundPosition:'center',backgroundRepeat:'no-repeat',backgroundSize:'cover' }} className='p-2 p-xl-5 col-12 col-sm-12 col-md-12 col-lg-10 col-xl-6 col-xxl-6 mx-auto  p-3 h-100  d-flex flex-column justify-content-between '   >  
-                   <div className='px-2'>
-                        <div style={{lineHeight:'2px'}}>
-                        <h3 className='text-center font-monospace fw-bold display-3 text-white '>Weather App</h3><br />
-                        <h5 className='text-center font-monospace fw-bold text-white'>{dateBuilder(new Date())}</h5>
+    <Container className='p-0  mx-auto text-center'  >
+        <Row   className='    mx-auto  '  >
+            <Col  style={{ backgroundImage:`url(${wicon})`,backgroundPosition:'center',backgroundRepeat:'no-repeat',backgroundSize:'cover' }} className='vh-100 p-2 p-xl-5 col-12 col-sm-12 col-md-12 col-lg-10 col-xl-6 col-xxl-6 mx-auto    d-flex flex-column justify-content-between '   >  
+                   <div className='p-2'>
+                        <div style={{lineHeight:'2px'}} >
+                        <h3 className='text-center font-monospace fw-bold display-3 text-white  '>Weather App</h3><br />
+                        <h5 className='text-center font-monospace fw-bold text-white'>{dateBuilder()}</h5>
                         </div>
-                    
-                        <div className='d-flex flex-row  justify-content-center mt-4 '>
+                    <br />
+                        <div className='d-flex flex-row  justify-content-center mt-4'>
 
                                 <input className='me-1 px-2 shadow' style={{border:'none',borderRadius:'20px'}} type="text"  onChange={(e)=>setLocation(e.target.value)} placeholder='Kochi' />
                                 <button onClick={getWeather} className='btn btn-white bg-white fw-medium  text-center shadow fs-6 p-1' style={{borderRadius:'50%',width:'30px',textAlign:'center'}} ><i class="fa-solid fa-magnifying-glass"></i></button>
@@ -109,9 +109,9 @@ return (
                     
                            <div style={{backgroundColor:'rgba(255,255,255,0.4'}} className='p-1 text-center mt-2 font-monospace shadow rounded-5 text-dark '>                
                               
-                                <h1 className='fw-bold display-2 '>{Math.floor(weatherdata.main?.temp)}&deg;<span className='fs-2'>C</span> </h1>
-                                <h3 className='text-dark fw-medium '>{weatherdata.name}</h3>
-                               {weatherdata.weather? <h4>{weatherdata.weather[0].main}</h4> :null}              
+                                <h1 className='fw-bold display-2 text-center'>{Math.floor(weatherdata.main?.temp)}&deg;<span className='fs-2'>C</span> </h1>
+                                <h3 className='text-dark fw-medium text-center fs-2'>{weatherdata.name}</h3>
+                               {weatherdata.weather? <h4 className='text-center fs-6'>{weatherdata.weather[0].main}</h4> :null}              
                             
                             </div>
 
@@ -125,7 +125,7 @@ return (
                                     <p className='fw-bold text-dark ' >Feels Like</p>
             
                                 </div>
-                                <div style={{lineHeight:'1px'}}>
+                                <div style={{lineHeight:'1px'}} >
                                     <p className='fw-bold text-dark '><i class="fa-solid fa-wind"></i> {weatherdata.wind?.speed}Km/h</p>
                                     <p className='fw-bold text-dark ' >wind </p>
                                 </div>
